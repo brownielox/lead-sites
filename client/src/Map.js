@@ -24,6 +24,11 @@ export default class Map extends Component {
 
     var _onClick = ({x, y, lat, lng, event}) => {
       this.props.pinDrop(lat, lng);
+      var compare = require('compare-lat-lon');
+      var final = locations.map((location) => {
+        return [compare(lat, lng, location.lat, location.lng), location.name];
+      });
+      console.log(final.sort());
     }
     return (
       <GoogleMapReact
