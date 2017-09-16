@@ -1,0 +1,14 @@
+<br>
+<br>
+
+<%= form_for :contributor, url: contributors_path do |f| %>
+
+  <div>
+    <%= f.label :reading %><br>
+    <%= f.text_area :reading %>
+  </div>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

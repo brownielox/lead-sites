@@ -4,6 +4,7 @@ import Map from './Map';
 import Distances from './Distances'
 import Buttons from './Buttons'
 import UserInput from './UserInput'
+import ReadingsForm from './ReadingsForm'
 import logo from './logo.svg';
 import './App.css';
 
@@ -26,6 +27,7 @@ class App extends Component {
         <Distances />
         <Buttons />
         <UserInput />
+        <ReadingsForm />
       </div>
     );
   }
