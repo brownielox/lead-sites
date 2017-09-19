@@ -1,10 +1,5 @@
 module.exports =
-[{name: 'GIRARD SMELTING COMPANY',
-address: 'BLEIGH AND MILNOR STREET',
-lat: 40.025495,
-lng: -75.026230},
-
-{name: 'L. GOLDSTEIN\'S SON LEAD SMELTER',
+[{name: 'L. GOLDSTEIN\'S SON LEAD SMELTER',
 address: 'WISSINOMING AVE & KNOLL ST',
 lat: 40.020747,
 lng: -75.039718},
@@ -43,6 +38,11 @@ lng: -75.085085},
 address: '2255 BUTLER STREET',
 lat: 39.998101,
 lng: -75.093002},
+
+{name: 'GIRARD SMELTING COMPANY',
+address: 'BLEIGH AND MILNOR STREET',
+lat: 40.025495,
+lng: -75.026230},
 
 {name: 'REID METAL REFINING CO. LEAD SMELTER',
 address: 'CASTOR AVE & TULIP ST.',

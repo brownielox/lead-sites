@@ -12,8 +12,8 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Map extends Component {
   static defaultProps = {
-    center: {lat: 39.9582, lng: -75.1731},
-    zoom: 11
+    center: {lat: 40.000312, lng: -75.106152},
+    zoom: 12
   };
 
   render() {
@@ -27,12 +27,8 @@ class Map extends Component {
 
     var _onClick = ({x, y, lat, lng, event}) => {
       this.props.stuffActions.updateLatLng(lat, lng);
-      var compare = require('compare-lat-lon');
-      var final = locations.map((location) => {
-        return [compare(lat, lng, location.lat, location.lng), location.name];
-      });
-      console.log(final.sort());
     }
+
     return (
       <GoogleMapReact
         bootstrapURLKeys={{key: "AIzaSyDeJJKWh4-s3iVMgdwSKWGg7zB8n7cqYW8"}}

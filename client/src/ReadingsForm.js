@@ -21,6 +21,7 @@ class ReadingsForm extends Component {
 
   submitReading(){
     console.log(this.state.reading, this.props.positions.lat, this.props.positions.lng)
+
   }
 
   render(){
