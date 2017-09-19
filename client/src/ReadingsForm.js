@@ -20,9 +20,25 @@ class ReadingsForm extends Component {
   }
 
   submitReading(){
-    console.log(this.state.reading, this.props.positions.lat, this.props.positions.lng)
+      fetch('/contributors', {
+        method: "POST",
+        accept: 'application/json',
+        body: {
+          reading: this.state.reading,
+          lat: this.props.positions.lat,
+          lng: this.props.positions.lng},
 
-  }
+  }).then(function(response) {
+    // response.status     //=> number 100–599
+    // response.statusText //=> String
+    // response.headers    //=> Headers
+    // response.url        //=> String
+
+    return response.text()
+  }, function(error) {
+    // error.message //=> String
+  })
+    // console.log(this.state.reading, this.props.positions.lat, this.props.positions.lng)
 
   render(){
     return <div>
@@ -30,9 +46,7 @@ class ReadingsForm extends Component {
       <div id="map_holder"><Map/></div>
 
       <form id='a_form'>
-        <input type='hidden' id="lat" label="lat" value={this.props.positions.lat}/>
-        <input type='hidden' id="long" label="lng" value={this.props.positions.long}/>
-          Reading:<br/><input onChange={(event) =>{this.setState({reading: event.target.value})}} type="text" id="reading" label="reading"/> ppm
+        Reading:<br/><input onChange={(event) =>{this.setState({reading: event.target.value})}} type="text" id="reading" label="reading"/> ppm
       </form>
         <button onClick={() =>{this.submitReading()}}>Submit Measurements</button>
     </div>

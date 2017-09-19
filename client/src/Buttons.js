@@ -10,6 +10,8 @@ class Buttons extends React.Component {
         <div>
           <Button><a href="/submit">Add Values</a></Button>
           <Button><a href="/about">About</a></Button>
+          <Button>Smelting Locations</Button>
+          <Button>User provided data</Button>
         </div>
       )
     }

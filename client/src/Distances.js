@@ -26,15 +26,14 @@ class Distances extends React.Component {
             location.lat,
             location.lng
           );
-            return [(dist).toFixed(3), location.name, location.address]
+            return [parseFloat((dist).toFixed(3)), location.name, location.address]
           });
-
           distances = distances.sort(mySort);
-          // distances = distances.filter(entry => {
-          //   entry[0] <= 4
-          // })
+          distances = distances.filter(entry => {
+            return entry[0] <= 5
+          })
           var orderedList = distances.map((entry, index) => {
-            return <div key={index}>{entry[1]} <br/>{entry[2]} is <br/>{entry[0]} miles away.</div>
+            return <div key={index}>{entry[1]} <br/>{entry[2]} <br/> {entry[0]} miles away<br/><br/></div>
           })
       }
       return <div>{orderedList}</div>;

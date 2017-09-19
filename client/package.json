@@ -1,7 +1,9 @@
+
 {
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "compare-lat-lon": "^0.1.0",
     "google-map-react": "^0.24.0",
