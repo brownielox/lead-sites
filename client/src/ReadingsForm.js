@@ -1,27 +1,56 @@
 import React, {Component} from 'react';
+import Map from './Map';
+import Pin from './Pin';
+import Heading from './Heading'
+import GoogleMapReact from 'google-map-react';
+import MyGreatPlace from './MyGreatPlace'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as stuffActions from './actions/stuffActions'
+
+let locations = require('./LeadSites');
 
 class ReadingsForm extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      reading: null
+    };
+  }
+
+  submitReading(){
+    console.log(this.state.reading, this.props.positions.lat, this.props.positions.lng)
+  }
+
   render(){
     return <div>
-      <form>
-        <input type='hidden' id="lat" label="lat" value=""/>
-        <input type='hidden' id="long" label="lng" value=""/>
-          Reading:<br/><input type="text" id="reading" label="reading"/>
-        <input type="submit" id="save" value="save"/>
-        </form>
+      <Heading/>
+      <div id="map_holder"><Map/></div>
+
+      <form id='a_form'>
+        <input type='hidden' id="lat" label="lat" value={this.props.positions.lat}/>
+        <input type='hidden' id="long" label="lng" value={this.props.positions.long}/>
+          Reading:<br/><input onChange={(event) =>{this.setState({reading: event.target.value})}} type="text" id="reading" label="reading"/> ppm
+      </form>
+        <button onClick={() =>{this.submitReading()}}>Submit Measurements</button>
     </div>
   }
 }
 
-export default ReadingsForm;
+function mapStateToProps(state) {
+  return {
+    positions: state.positions
+  };
+}
 
+function mapDispatchToProps(dispatch) {
+  return {
+    stuffActions: bindActionCreators(stuffActions, dispatch)
+  };
+}
 
-
-// $("#save").click(function(){
-//   var subjectId = $("#subjectId").val();
-//   var front = $("#front").val();
-//   var back = $("#back").val();
-//   CardService.createNewCard(subjectId, front, back, function(){})
-//   $(".new_holder").remove();
-// });
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ReadingsForm);

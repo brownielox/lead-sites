@@ -1,5 +1,6 @@
 import React from 'react';
 import Client from './Client';
+import ReadingsForm from './ReadingsForm';
 import { Button } from 'react-bootstrap';
 
 
@@ -7,12 +8,11 @@ class Buttons extends React.Component {
     render() {
       return (
         <div>
-          <Button>Button 1</Button>
-          <Button>Button 2</Button>
+          <Button><a href="/submit">Add Values</a></Button>
+          <Button><a href="/about">About</a></Button>
         </div>
       )
     }
 }
-
 
 export default Buttons;

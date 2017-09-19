@@ -32,4 +32,9 @@
 #map_holder {
   width: 600px;
   height: 300px;
+  margin: auto;
+}
+
+#a_form {
+  margin: auto;
 }

@@ -3,9 +3,11 @@ import Heading from './Heading';
 import Map from './Map';
 import Distances from './Distances'
 import Buttons from './Buttons'
-import UserInput from './UserInput'
 import ReadingsForm from './ReadingsForm'
 import logo from './logo.svg';
+import StuffList from './StuffList'
+import { connect } from 'react-redux'
+import thunk from 'redux-thunk'
 import './App.css';
 
 class App extends Component {
@@ -23,11 +25,9 @@ class App extends Component {
     return (
       <div className="App">
         <Heading />
-        <div id="map_holder"><Map pinDrop={this.storeLatLng.bind(this)} pinLat={this.state.lat} pinLng={this.state.lng}/></div>
+        <div id="map_holder"><Map/></div>
         <Distances />
         <Buttons />
-        <UserInput />
-        <ReadingsForm />
       </div>
     );
   }
