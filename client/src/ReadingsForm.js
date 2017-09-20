@@ -39,7 +39,7 @@ class ReadingsForm extends Component {
     // error.message //=> String
   })
     // console.log(this.state.reading, this.props.positions.lat, this.props.positions.lng)
-
+}
   render(){
     return <div>
       <Heading/>
