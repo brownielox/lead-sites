@@ -1,10 +1,13 @@
 class ContributorsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @contributors = Contributor.all
     render json: @contributors
   end
 
   def new
+    @contributor = Contributor.new
   end
 
   def show
@@ -12,13 +15,13 @@ class ContributorsController < ApplicationController
   end
 
   def create
-    contributor = Contributor.create!(contributor_params)
-    contributor.save
-    render json: contributor, status: 201
+    @contributor = Contributor.new(contributor_params)
+    @contributor.save
+    render json: @contributor
   end
 
   private
     def contributor_params
-      params.require(:contributor).permit(:lat, :lng, :reading)
+      params.permit(:lat, :lng, :reading)
     end
 end
