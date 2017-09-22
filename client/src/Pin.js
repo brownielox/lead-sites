@@ -1,19 +1,15 @@
 import React, {PropTypes, Component} from 'react';
-
-import {herePinStyle} from './MyGreatPlaceStyles.js';
+import {userPinStyle, herePinStyle} from './MyGreatPlaceStyles.js';
 
 export default class MyGreatPlace extends Component {
   static propTypes = {
     text: PropTypes.string
   };
 
-  static defaultProps = {};
-
-//  {this.props.name}
+static defaultProps = {};
   render() {
     return (
-       <div style={herePinStyle}>
-       </div>
+       <div style={this.props.pinStyle} data-tip={"hello"}></div>
     );
   }
 }

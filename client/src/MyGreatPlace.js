@@ -1,5 +1,4 @@
 import React, {PropTypes, Component} from 'react';
-
 import {greatPlaceStyle} from './MyGreatPlaceStyles.js';
 
 export default class MyGreatPlace extends Component {
@@ -9,11 +8,9 @@ export default class MyGreatPlace extends Component {
 
   static defaultProps = {};
 
-//  {this.props.name}
   render() {
     return (
-       <div style={greatPlaceStyle}>
-       </div>
+       <div style={this.props.style}data-tip={this.props.address}></div>
     );
   }
 }
