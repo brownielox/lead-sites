@@ -3,7 +3,7 @@ import Map from './Map';
 import Pin from './Pin';
 import Heading from './Heading'
 import GoogleMapReact from 'google-map-react';
-import MyGreatPlace from './MyGreatPlace'
+import MyPlace from './MyPlace'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as stuffActions from './actions/stuffActions'
@@ -38,11 +38,12 @@ class ReadingsForm extends Component {
     return <div className="App">
       <Heading/>
       <div id="map_holder"><Map/></div>
-
+      <h3>Had your soil tested?</h3>
+      <p>Click the map to pinpoint your location, then add the test results (in ppm) to our database below.</p>
       <form id='a_form'>
         Reading:<br/><input onChange={(event) =>{this.setState({reading: parseInt(event.target.value)})}} type="text" id="reading" label="reading"/> ppm
       </form>
-        <button onClick={() =>{this.submitReading()}}>Submit Measurements</button>
+        <button onClick={() =>{this.submitReading()}}>Submit my measurements</button>
     </div>
   }
 }

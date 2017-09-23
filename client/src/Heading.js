@@ -6,9 +6,9 @@ class Heading extends React.Component {
     render() {
       return(
       <div>
-        <h1 align="center">Philadelphia Smelting Location Finder</h1>
+        <h2 align="center">Fishtown Smelting Location Finder</h2>
         <Link to="/"><Button>Home</Button></Link>
-        <Link to="/submit"><Button>Add Values</Button></Link>
+        <Link to="/submit"><Button>Contribute Data</Button></Link>
         <Link to="/about"><Button>About</Button></Link>
         <br/><br/>
       </div>

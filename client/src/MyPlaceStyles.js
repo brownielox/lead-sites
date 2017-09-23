@@ -1,7 +1,7 @@
 const K_WIDTH = 40;
 const K_HEIGHT = 40;
 
-const greatPlaceStyle = {
+const placeStyle = {
   // initially any map object has left top corner at lat lng coordinates
   position: 'absolute',
   width: K_WIDTH,
@@ -53,9 +53,9 @@ const userPinStyle = {
   backgroundColor: 'orange',
   textAlign: 'center',
   color: '#3f51b5',
-  fontSize: 16,
+  fontSize: 10,
   fontWeight: 'bold',
   padding: 4
 };
 
-export {greatPlaceStyle, herePinStyle, userPinStyle};
+export {placeStyle, herePinStyle, userPinStyle};

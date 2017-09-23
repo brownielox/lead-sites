@@ -17,7 +17,6 @@ class ContributorsController < ApplicationController
   def create
     @contributor = Contributor.new(contributor_params)
     @contributor.save
-    render json: @contributor
   end
 
   private

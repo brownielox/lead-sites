@@ -40,9 +40,9 @@ class App extends Component {
     return (
       <div className="App">
         <Heading />
-        <div id="map_holder"><Map userLocations={this.state.readings} userData={this.state.userData}/></div>
+        <div id="map_holder"><Map userLocations={this.state.readings} userData={this.state.userData}/></div><br/>
+        <Button onClick={() => {this.onClick()}}>Click for user-provided data</Button><br/><br/>
         <Distances />
-        <Button onClick={() => {this.onClick()}}>User provided data</Button>
       </div>
     );
   }
