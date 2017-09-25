@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import {FETCH_STUFF, RECEIVE_STUFF, UPDATE_LAT_LNG} from '../actions/actionTypes';
+import {UPDATE_LAT_LNG} from '../actions/actionTypes';
 
 export default function stuff(state = initialState, action) {
   let newState;
@@ -7,13 +7,6 @@ export default function stuff(state = initialState, action) {
     case UPDATE_LAT_LNG:
       newState = action.positions;
       return newState;
-    // case FETCH_STUFF:
-    //   console.log('FETCH_STUFF Action')
-    //   return action;
-    // case RECEIVE_STUFF:
-    //   newState = action.stuff;
-    //   console.log('RECEIVE_STUFF Action')
-    //   return newState;
     default:
       return state;
   }

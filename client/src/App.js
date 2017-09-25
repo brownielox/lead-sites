@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import Heading from './Heading';
 import Map from './Map';
 import Distances from './Distances'
-import ReadingsForm from './ReadingsForm'
-import logo from './logo.svg';
-import StuffList from './StuffList'
-import { connect } from 'react-redux'
-import thunk from 'redux-thunk'
 import { Button } from 'react-bootstrap';
 import './App.css';
 
@@ -41,7 +36,7 @@ class App extends Component {
       <div className="App">
         <Heading />
         <div id="map_holder"><Map userLocations={this.state.readings} userData={this.state.userData}/></div><br/>
-        <Button onClick={() => {this.onClick()}}>Click for user-provided data</Button><br/><br/>
+        <Button onClick={() => {this.onClick()}}>Click for user-provided data (in ppm)</Button><br/><br/>
         <Distances />
       </div>
     );

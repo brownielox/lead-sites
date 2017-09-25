@@ -1,5 +1,5 @@
-const K_WIDTH = 40;
-const K_HEIGHT = 40;
+const K_WIDTH = 30;
+const K_HEIGHT = 30;
 
 const placeStyle = {
   // initially any map object has left top corner at lat lng coordinates
@@ -11,7 +11,7 @@ const placeStyle = {
 
   border: '5px solid #f44336',
   borderRadius: K_HEIGHT,
-  backgroundColor: 'white',
+  backgroundColor: 'blue',
   textAlign: 'center',
   color: '#3f51b5',
   fontSize: 16,
@@ -31,7 +31,7 @@ const herePinStyle = {
 
   border: '5px solid #f44336',
   borderRadius: K_HEIGHT,
-  backgroundColor: 'blue',
+  backgroundColor: 'white',
   textAlign: 'center',
   color: '#3f51b5',
   fontSize: 16,

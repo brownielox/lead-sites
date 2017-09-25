@@ -1,9 +1,8 @@
 import React from 'react';
-import Client from './Client';
 import { connect } from 'react-redux'
 import compare from 'compare-lat-lon'
 
-let locations = require('./LeadSites');
+let locations = require('./data/LeadSites');
 
 class Distances extends React.Component {
 
@@ -32,7 +31,7 @@ class Distances extends React.Component {
           distances = distances.filter(entry => {
             return entry[0] <= 5
           })
-          var orderedList = distances.map((entry, index) => {
+          orderedList = distances.map((entry, index) => {
             return <div key={index}>{entry[1]} <br/>{entry[2]} <br/> {entry[0]} miles away<br/><br/></div>
           })
       }

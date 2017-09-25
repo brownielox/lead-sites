@@ -1,1 +1,1 @@
-export default {lat: null, lng: null};
+export default {};

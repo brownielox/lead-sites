@@ -6,10 +6,7 @@ import ReactTooltip from 'react-tooltip'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as stuffActions from './actions/stuffActions'
-import { placeStyle, herePinStyle, userPinStyle } from './MyPlaceStyles'
-let locations = require('./LeadSites');
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+let locations = require('./data/LeadSites');
 
 class Map extends Component {
   static defaultProps = {
@@ -39,6 +36,12 @@ class Map extends Component {
         />
       })) : []
 
+    var droppedPin = this.props.positions.lat ?
+        <MyPlace
+          lat={this.props.positions.lat}
+          lng={this.props.positions.lng}
+        />: null
+
     var _onClick = ({x, y, lat, lng, event}) => {
       this.props.stuffActions.updateLatLng(lat, lng);
     }
@@ -53,10 +56,7 @@ class Map extends Component {
         {markerMaker}
         {userMarkerMaker}
         <ReactTooltip />
-        <MyPlace
-          lat={this.props.positions.lat}
-          lng={this.props.positions.lng}
-        />
+        {droppedPin}
       </GoogleMapReact>
     );
   }

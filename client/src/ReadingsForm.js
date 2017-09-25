@@ -1,15 +1,9 @@
 import React, {Component} from 'react';
 import Map from './Map';
-import Pin from './Pin';
 import Heading from './Heading'
-import GoogleMapReact from 'google-map-react';
-import MyPlace from './MyPlace'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as stuffActions from './actions/stuffActions'
-import thunk from 'redux-thunk';
-
-let locations = require('./LeadSites');
 
 class ReadingsForm extends Component {
 
@@ -41,7 +35,7 @@ class ReadingsForm extends Component {
       <h3>Had your soil tested?</h3>
       <p>Click the map to pinpoint your location, then add the test results (in ppm) to our database below.</p>
       <form id='a_form'>
-        Reading:<br/><input onChange={(event) =>{this.setState({reading: parseInt(event.target.value)})}} type="text" id="reading" label="reading"/> ppm
+        Reading:<br/><input onChange={(event) =>{this.setState({reading: parseInt(event.target.value, 10)})}} type="text" id="reading" label="reading"/> ppm
       </form>
         <button onClick={() =>{this.submitReading()}}>Submit my measurements</button>
     </div>

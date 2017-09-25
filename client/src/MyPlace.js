@@ -1,10 +1,7 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
 import {placeStyle, userPinStyle, herePinStyle} from './MyPlaceStyles.js';
 
 export default class MyPlace extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  };
 
   static defaultProps = {};
 

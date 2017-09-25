@@ -5,7 +5,7 @@ import App from './App';
 import ReadingsForm from './ReadingsForm'
 import About from './About'
 import configureStore from './store/configureStore';
-import { Router, browserHistory, IndexRoute, Route } from 'react-router'
+import { Router, browserHistory, Route } from 'react-router'
 import { Provider } from 'react-redux'
 import registerServiceWorker from './registerServiceWorker';
 
