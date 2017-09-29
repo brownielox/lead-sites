@@ -3,7 +3,6 @@ import Map from './Map';
 import Heading from './Heading'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { browserHistory } from 'react-router'
 import * as stuffActions from './actions/stuffActions'
 
 class ReadingsForm extends Component {
@@ -27,7 +26,7 @@ class ReadingsForm extends Component {
         lng: this.props.positions.lng,
         reading: this.state.reading
       })
-    }).then(e => {browserHistory.push('/')})
+    });
   }
   render(){
     return <div className="App">
