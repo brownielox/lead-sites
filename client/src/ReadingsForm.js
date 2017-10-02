@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Map from './Map';
 import Heading from './Heading'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as stuffActions from './actions/stuffActions'
+import { browserHistory } from 'react-router'
+import * as mapActions from './actions/mapActions'
 
 class ReadingsForm extends Component {
 
@@ -26,7 +27,7 @@ class ReadingsForm extends Component {
         lng: this.props.positions.lng,
         reading: this.state.reading
       })
-    });
+    }).then(e => {browserHistory.push('/')});
   }
   render(){
     return <div className="App">
@@ -42,6 +43,7 @@ class ReadingsForm extends Component {
   }
 }
 
+//mapReduxStateToReactProps
 function mapStateToProps(state) {
   return {
     positions: state.positions
@@ -50,7 +52,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    stuffActions: bindActionCreators(stuffActions, dispatch)
+    mapActions: bindActionCreators(mapActions, dispatch)
   };
 }
 

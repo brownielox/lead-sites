@@ -5,7 +5,7 @@ import Pin from './Pin'
 import ReactTooltip from 'react-tooltip'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as stuffActions from './actions/stuffActions'
+import * as mapActions from './actions/mapActions'
 let locations = require('./data/LeadSites');
 
 class Map extends Component {
@@ -43,9 +43,10 @@ class Map extends Component {
         />: null
 
     var _onClick = ({x, y, lat, lng, event}) => {
-      this.props.stuffActions.updateLatLng(lat, lng);
+      this.props.mapActions.updateLatLng(lat, lng);
     }
 
+//Question: Best way to hide key in public repo?
     return (
       <GoogleMapReact
         bootstrapURLKeys={{key: "AIzaSyDeJJKWh4-s3iVMgdwSKWGg7zB8n7cqYW8"}}
@@ -70,7 +71,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    stuffActions: bindActionCreators(stuffActions, dispatch)
+    mapActions: bindActionCreators(mapActions, dispatch)
   };
 }
 

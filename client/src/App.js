@@ -24,6 +24,7 @@ class App extends Component {
     })
   }
 
+//separate function avoids this.setState-related error in onClick function
   onFetch(response) {
     this.setState({
       readings: response
