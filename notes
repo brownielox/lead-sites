@@ -1,0 +1,5 @@
+[X] 1. Complete the like feature without persistence - commit that to a separate branch
+
+[] 2. Complete the like feature with persistence - commit to a separate branch as well
+
+[X] 3. Read up about how to handle the promise that gets returned when making a fetch request

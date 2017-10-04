@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Map from './Map';
 import Heading from './Heading'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+// import { bindActionCreators } from 'redux'
 import { browserHistory } from 'react-router'
-import * as mapActions from './actions/mapActions'
+// import * as mapActions from './actions/mapActions'
 
 class ReadingsForm extends Component {
 
@@ -50,13 +50,13 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    mapActions: bindActionCreators(mapActions, dispatch)
-  };
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     mapActions: bindActionCreators(mapActions, dispatch)
+//   };
+// }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  // mapDispatchToProps
 )(ReadingsForm);

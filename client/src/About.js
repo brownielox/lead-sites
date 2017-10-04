@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Heading from './Heading'
 
-
 class About extends Component{
   render(){
        return(
