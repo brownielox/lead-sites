@@ -6,6 +6,18 @@ let locations = require('./data/LeadSites');
 
 class Distances extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state={
+      likes: 0
+    };
+  }
+
+  addLikes() {
+    this.setState({likes: this.state.likes + 1
+    });
+  }
+
     render() {
 
       function mySort(a, b){
@@ -32,7 +44,8 @@ class Distances extends React.Component {
             return entry[0] <= 5
           })
           orderedList = distances.map((entry, index) => {
-            return <div key={index}>{entry[1]} <br/>{entry[2]} <br/> {entry[0]} miles away<br/><br/></div>
+            return <div key={index}>{entry[1]} <br/>{entry[2]} <br/> {entry[0]} miles away<br/><br/>
+            <button onClick={() =>{this.addLikes()}}>like</button> {this.state.likes}</div>
           })
       }
       return <div>{orderedList}</div>;
