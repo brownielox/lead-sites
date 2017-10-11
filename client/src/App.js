@@ -17,13 +17,15 @@ class App extends Component {
 
   onClick(){
     this.setState({userData:!(this.state.userData)})
-    fetch('/contributors')
-    .then((response) => {
-      return response.json()})
-    .then((responseJSON) => {
-      console.log(responseJSON)
-      this.onFetch(responseJSON)
-    })
+    if(this.state.userData){
+      fetch('/contributors')
+      .then((response) => {
+        return response.json()})
+      .then((responseJSON) => {
+        console.log(responseJSON)
+        this.onFetch(responseJSON)
+      })
+    }
   }
 
 //separate function avoids this.setState-related error in onClick function
