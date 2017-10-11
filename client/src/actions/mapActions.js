@@ -7,3 +7,7 @@ export function updateLatLng(lat, lng) {
 export function addLikes() {
   return {type: types.ADD_LIKES}
 }
+
+export function addDislikes() {
+  return {type: types.ADD_DISLIKES}
+}

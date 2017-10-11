@@ -56,6 +56,7 @@ class Distances extends React.Component {
           orderedList = distances.map((entry, index, props) => {
             return <div key={index}>{entry[1]} <br/>{entry[2]} <br/> {entry[0]} miles away<br/><br/>
               <button onClick={this.props.mapActions.addLikes}>Like </button>{this.props.likes}
+              <button onClick={this.props.mapActions.addDislikes}>Dislike </button>{this.props.dislikes}
               </div>
           })
       }
@@ -66,6 +67,7 @@ class Distances extends React.Component {
 function mapStateToProps(state) {
   return {
     likes: state.likes,
+    dislikes: state.dislikes,
     positions: state.positions
   };
 }
