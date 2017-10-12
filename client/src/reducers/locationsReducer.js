@@ -1,17 +1,16 @@
 import initialState from './initialState';
 import { ADD_LIKES, LOAD_LOCATIONS } from '../actions/actionTypes';
-import fetch from 'isomorphic-fetch'
 
-export default function stuff(state = initialState, action) {
+export default function stuff(state = [], action) {
   let newState;
   switch (action.type) {
     case LOAD_LOCATIONS:
-      newState = action.locations;
+      newState = action.data;
       return newState;
     case ADD_LIKES:
-    //shallow copy so as not to mutate state
-      newState = [...state];
-      newState[action.data.i].likes++;
+      newState = state.map(function(leadSite){
+        return leadSite.id === action.leadSite.id ? action.leadSite : leadSite
+      })
       return newState
     default:
       return state;

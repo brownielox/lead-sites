@@ -31,13 +31,6 @@ class Distances extends React.Component {
     });
   }
 
-  addLikesRedux = () => {
-    let count = this.state.count
-    this.setState({
-      count: count + 1
-    })
-  }
-
     render() {
       function mySort(a, b){
         if (a[0] < b[0]) return -1;
@@ -49,6 +42,7 @@ class Distances extends React.Component {
         var orderedList = <p>Click on the map to find your distance from the smelting sites.</p>
       }
       else {
+        //locations via mapStateToProps
         var distances = this.props.locations.map((location, index) => {
           var dist = compare(
             this.props.positions.lat,
@@ -62,16 +56,16 @@ class Distances extends React.Component {
           distances = distances.filter(entry => {
             return entry[0] <= 5
           })
-          orderedList = distances.map((entry, sortIndex, props) => {
-            //locationIndex is the position of this location in original json object
-            let locationIndex = entry[3];
+          orderedList = distances.map((entry, props) => {
+            //constantIndex is the position of this location in original json object
+            let constantIndex = entry[3];
             return <Distance
-              key={sortIndex}
+              key={constantIndex}
               name={entry[1]}
               address={entry[2]}
               distance={entry[0]}
-              likes={this.props.locations[locationIndex].likes}
-              index={locationIndex}
+              likes={this.props.locations[constantIndex].likes}
+              index={constantIndex}
             />
           })
       }

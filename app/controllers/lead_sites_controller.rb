@@ -15,6 +15,7 @@ skip_before_filter :verify_authenticity_token
     @lead_site = LeadSite.find(params[:id])
     new_likes = @lead_site.likes + 1
     @lead_site.update(likes: new_likes)
+    render json: @lead_site
   end
 
   private

@@ -17,10 +17,8 @@ const Root = () => {
   </Router>)
 }
 
-const store = configureStore();
-
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={configureStore()}>
       <Root />
   </Provider>,
   document.getElementById('root')
