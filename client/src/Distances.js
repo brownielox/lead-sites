@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import compare from 'compare-lat-lon'
 import { bindActionCreators } from 'redux'
 import * as mapActions from './actions/mapActions'
-
-let locations = require('./data/LeadSites');
+import Distance from './Distance'
 
 class Distances extends React.Component {
 
@@ -13,6 +12,16 @@ class Distances extends React.Component {
     this.state = {
       count: 0
     };
+  }
+
+  componentDidMount(){
+    fetch('/lead_sites')
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      this.props.mapActions.loadLocations(data);
+    })
   }
 
   callAPI = () => {
@@ -40,24 +49,30 @@ class Distances extends React.Component {
         var orderedList = <p>Click on the map to find your distance from the smelting sites.</p>
       }
       else {
-        var distances = locations.map((location, index) => {
+        var distances = this.props.locations.map((location, index) => {
           var dist = compare(
             this.props.positions.lat,
             this.props.positions.lng,
             location.lat,
             location.lng
           );
-            return [parseFloat((dist).toFixed(3)), location.name, location.address]
+            return [parseFloat((dist).toFixed(3)), location.name, location.address, index]
           });
           distances = distances.sort(mySort);
           distances = distances.filter(entry => {
             return entry[0] <= 5
           })
-          orderedList = distances.map((entry, index, props) => {
-            return <div key={index}>{entry[1]} <br/>{entry[2]} <br/> {entry[0]} miles away<br/><br/>
-              <button onClick={this.props.mapActions.addLikes}>Like </button>{this.props.likes}
-              <button onClick={this.props.mapActions.addDislikes}>Dislike </button>{this.props.dislikes}
-              </div>
+          orderedList = distances.map((entry, sortIndex, props) => {
+            //locationIndex is the position of this location in original json object
+            let locationIndex = entry[3];
+            return <Distance
+              key={sortIndex}
+              name={entry[1]}
+              address={entry[2]}
+              distance={entry[0]}
+              likes={this.props.locations[locationIndex].likes}
+              index={locationIndex}
+            />
           })
       }
       return <div>{orderedList}</div>;
@@ -66,9 +81,8 @@ class Distances extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    likes: state.likes,
-    dislikes: state.dislikes,
-    positions: state.positions
+    positions: state.positions,
+    locations: state.locations
   };
 }
 

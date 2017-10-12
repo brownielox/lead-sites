@@ -1,12 +1,10 @@
 import {combineReducers} from 'redux';
 import positions from './stuffReducer';
-import likes from './likesReducer'
-import dislikes from './dislikesReducer'
+import locations from './locationsReducer'
 
 const rootReducer = combineReducers({
   positions,
-  likes,
-  dislikes
+  locations
 });
 
 export default rootReducer;

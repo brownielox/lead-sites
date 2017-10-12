@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170916021759) do
+ActiveRecord::Schema.define(version: 20171012005028) do
 
   create_table "contributors", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20170916021759) do
     t.float    "lat"
     t.float    "lng"
     t.float    "reading"
+  end
+
+  create_table "lead_sites", force: :cascade do |t|
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "name"
+    t.string   "address"
+    t.integer  "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

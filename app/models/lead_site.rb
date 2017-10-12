@@ -1,0 +1,2 @@
+class LeadSite < ApplicationRecord
+end
